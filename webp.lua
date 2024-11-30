@@ -21,12 +21,8 @@ do
 		local tmp = utils.subprocess({args = {"mktemp", "-d"}}).stdout
 		tmp = tmp:sub(1, -2)
 		assert(tmp:match("^/tmp/"), "mktemp did not return in tmp")
-		if tmp:match("^/tmp/") then
-			tmp_dir = tmp
-			return tmp
-		else
-			error("tmpdir not created in root")
-		end
+		tmp_dir = tmp
+		return tmp
 	end
 end
 
